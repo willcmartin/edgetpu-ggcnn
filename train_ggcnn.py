@@ -24,14 +24,14 @@ INPUT_DATASET = 'data/datasets/dataset_210516_1505.hdf5'
 # Load the data.
 f = h5py.File(INPUT_DATASET, 'r')
 
-depth_train = np.expand_dims(np.array(f['train/depth_inpainted']), -1)
+rgb_train = np.array(f['train/rgb'])
 point_train = np.expand_dims(np.array(f['train/grasp_points_img']), -1)
 angle_train = np.array(f['train/angle_img'])
 cos_train = np.expand_dims(np.cos(2*angle_train), -1)
 sin_train = np.expand_dims(np.sin(2*angle_train), -1)
 grasp_width_train = np.expand_dims(np.array(f['train/grasp_width']), -1)
 
-depth_test = np.expand_dims(np.array(f['test/depth_inpainted']), -1)
+rgb_test = np.array(f['test/rgb'])
 point_test = np.expand_dims(np.array(f['test/grasp_points_img']), -1)
 angle_test = np.array(f['test/angle_img'])
 cos_test = np.expand_dims(np.cos(2*angle_test), -1)
@@ -46,12 +46,12 @@ f.close()
 # ====================================================================================================
 # Set up the train and test data.
 
-x_train = depth_train
+x_train = rgb_train
 
 grasp_width_train = np.clip(grasp_width_train, 0, 150)/150.0
 y_train = [point_train, cos_train, sin_train, grasp_width_train]
 
-x_test = depth_test
+x_test = rgb_test
 
 grasp_width_test = np.clip(grasp_width_test, 0, 150)/150.0
 y_test = [point_test, cos_test, sin_test, grasp_width_test]
