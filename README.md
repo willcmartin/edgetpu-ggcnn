@@ -1,15 +1,26 @@
-# Generative Grasping CNN (GG-CNN) implemented on Edge TPU
+# Generative Grasping CNN (GG-CNN) Implemented on Edge TPU
 
 ## Goal
 Train and minimally implement the GG-CNN model on an Edge TPU
 
 ## Credit
-Credit for the model and much of the basic code goes to: https://github.com/dougsm/ggcnn
+Credit for the model and most of the code goes to: https://github.com/dougsm/ggcnn
 
-## Instructions
-1. Train
-2. Convert
-3. Evaluate
+## Procedure
+1. Generate Dataset
+    - Download
+        - [Cornell Grasping Dataset](https://www.kaggle.com/oneoneliu/cornell-grasp)
+        - The offical dataset is [here](pr.cs.cornell.edu/grasping/rect_data/data.php), but the website has been down for awhile
+        - Eventually I would like to use the [Jacquard Dataset](https://jacquard.liris.cnrs.fr/)
+    - Place dataset files in data/cornell
+    - Run generate_dataset.py
+        - This will create the needed .hdf5 file in data/datasets
+2. Train
+    - Run train_ggcnn.py
+    - TensorFlow model files for each epoch will be create in data/networks
+3. Convert
+    -  
+4. Evaluate
 
 Currently implemented:
 - Training
