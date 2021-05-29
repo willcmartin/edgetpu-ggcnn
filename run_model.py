@@ -22,12 +22,14 @@ class Grasp:
         self.length = length
         self.width = width
 
+
 def sqr_crop(img):
     h = img.shape[0]
     w = img.shape[1]
     half_sm_dim = min(h, w)//2
     img = img[(h//2)-(half_sm_dim):(h//2)+(half_sm_dim), (w//2)-(half_sm_dim):(w//2)+(half_sm_dim)]
     return img
+    
     
 def detect_grasps(p_img, width_img, ang_img, num_grasps=1, ang_threshold=5):
     # TODO: check speed
@@ -55,7 +57,6 @@ def detect_grasps(p_img, width_img, ang_img, num_grasps=1, ang_threshold=5):
         grasps.append(g)
 
     return grasps
-    
     
 
 def main():
@@ -126,7 +127,6 @@ def main():
         line_y2 = int(g.center[0]-(g.width*math.sin(g.angle)))
         
         cv2.line(frame, (line_x1,line_y1), (line_x2,line_y2), (255, 0, 0), 2)
-
 
     frame = cv2.resize(frame, (600, 600))
     cv2.imshow("Frame", frame)
