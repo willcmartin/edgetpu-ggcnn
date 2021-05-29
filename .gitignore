@@ -2,4 +2,5 @@ ggcnn/
 .DS_Store
 *.swp
 __pycache__/
+run_model_tf.py
 tensorboard/
