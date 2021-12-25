@@ -5,6 +5,10 @@ Train and minimally implement the GG-CNN model for an Edge TPU accelerator
 
 The model returns grasp positions, angles, and widths from an RGB image (RGB was used rather than RGBD because the Edge TPU is frequently used with low cost systems without a depth camera)
 
+<p align="center">
+    <img src="sample_imgs/img_1_inference.jpeg" width="300" alt="A nice picture of a marker with a line on it">
+</p>
+
 ## Credit
 Credit for model architecture, `train_ggcnn.py`, and `generate_dataset.py`: https://github.com/dougsm/ggcnn
 
